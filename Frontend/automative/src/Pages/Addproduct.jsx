@@ -10,14 +10,29 @@ const Addproduct = () => {
     const price = form.price.value;
     const descraption = form.descraption.value;
     const image = form.image.value;
+      
      const allCars ={name, brandname, price, descraption, image}
      console.log(allCars)
+
+    //  send data to server 
+    fetch('http://localhost:5000/allCars',{
+       method:'POST',
+       headers: {
+        'content-type':'application/json'
+       },
+       body:JSON.stringify(allCars)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+    })
   }
-  return (
-    <div>
+  return ( 
+    <div className=" py-46">
+      <h1 className="text-center text-3xl font-bold">You ADD your product in Home</h1>
       <form onSubmit={handleForm}>
         {/* 1st cars */}
-      <div className="flex gap-4">
+      <div className="gap-4">
       <div className="form-control">
         <label className="label">
           <span className="label-text font-bold">Name</span>
@@ -27,7 +42,7 @@ const Addproduct = () => {
             type="text"
             name="name"
             placeholder="Car name"
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
@@ -40,7 +55,7 @@ const Addproduct = () => {
             type="text"
             name="brandname"
             placeholder="Car name"
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
@@ -53,7 +68,7 @@ const Addproduct = () => {
             type="text"
             name="price"
             placeholder="price"
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
@@ -66,7 +81,7 @@ const Addproduct = () => {
             type="text"
             name="descraption"
             placeholder="Car name"
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
@@ -79,347 +94,7 @@ const Addproduct = () => {
             type="text"
             name="image"
             placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      </div>
-      {/* 2nd card  */}
-      <div className="flex gap-4">
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Brand name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="brandname"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">price</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="price"
-            placeholder="price"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Short Descraprion</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="descraption"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Image-url</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="image"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      </div>
-      {/* 3rd card  */}
-      <div className="flex gap-4">
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Brand name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="brandname"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">price</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="price"
-            placeholder="price"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Short Descraprion</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="descraption"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Image-url</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="image"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      </div>
-      {/* 4th card  */}
-      <div className="flex gap-4">
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Brand name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="brandname"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">price</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="price"
-            placeholder="price"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Short Descraprion</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="descraption"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Image-url</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="image"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      </div>
-      {/* 5th card  */}
-      <div className="flex gap-4">
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Brand name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="brandname"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">price</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="price"
-            placeholder="price"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Short Descraprion</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="descraption"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Image-url</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="image"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      </div>
-      {/* 6th card  */}
-      <div className="flex gap-4">
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="name"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Brand name</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="brandname"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">price</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="price"
-            placeholder="price"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Short Descraprion</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="descraption"
-            placeholder="Car name"
-            className="input input-bordered"
-          />
-        </label>
-      </div>
-      <div className="form-control">
-        <label className="label">
-          <span className="label-text font-bold">Image-url</span>
-        </label>
-        <label className="input-group">
-          <input
-            type="text"
-            name="image"
-            placeholder="Car name"
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
       </div>
